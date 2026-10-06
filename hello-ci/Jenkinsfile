@@ -1,19 +1,22 @@
 pipeline {
     agent any
+
     tools {
-        nodejs 'node20' 
+        nodejs 'node20'
     }
+
     stages {
-        stage('Install') { 
-            steps { 
-                sh 'npm install' 
-            } 
+        stage('Install') {
+            steps {
+                sh 'npm install'
+            }
         }
-        stage('Test') { 
+
+        stage('Test') {
             steps {
                 sh 'chmod +x node_modules/.bin/jest'
-                sh 'npm test' 
-            } 
+                sh 'npm test'
+            }
         }
     }
 }
